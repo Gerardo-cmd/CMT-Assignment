@@ -1,0 +1,23 @@
+<h1>NPI: <%= @search.npi %></h1>
+<h2>Last searched on <%= @search.updated_at %></h2>
+<h2>Response:</h2>
+
+<label for="name">Name</label>
+<p id="name"><%= @search.first_name%><%= @search.last_name %></p>
+
+<label for="address">Address</label>
+<p id="address"><%= @search.address %></p>
+
+<label for="state">State</label>
+<p id="state"><%= @search.state %></p>
+
+<label for="city">City</label>
+<p id="city"><%= @search.city %></p>
+
+<label for="taxonomy">Taxonomy</label>
+<p id="taxonomy"><%= @search.taxonomy %></p>
+
+<label for="phone_number">Telephone Number</label>
+<p id="phone_number"><%= @search.phone_number %></p>
+
+<%= link_to "HomePage", searches_path %>

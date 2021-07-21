@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row" id="alerts">
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+</div>
+
+<h1>Search up NPIs!</h1>
+<h2>Clink the button below to search for a NPI!</h2>
+<%= link_to "New Search", new_search_path, class: "btn btn-primary" %>
+<br />
+<br />
+<div>
+
+<table>                         
+  <tr>                          
+    <th>NPI</th>
+    <th>Full Name</th>
+    <th>Address</th>
+    <th>Taxonomy</th>
+  </tr>
+<% @searches.each do |search| %>
+  <tr>
+    <td><%= link_to search.npi, search %></td> 
+    <td><%= search.first_name + " " + search.last_name %></td>
+    <td><%= search.address + ", " + search.city + ", " + search.state %></td>
+    <td><%= search.taxonomy %></td>  
+  </tr>
+<% end %>
+</table>     
+
+</div>
+
+<br />
+
+<%# <%= link_to "Delete Search History", "searches#destroy", class: "btn btn-primary" %>
+</div>

@@ -1,0 +1,3 @@
+class Call < ApplicationRecord
+    
+end
