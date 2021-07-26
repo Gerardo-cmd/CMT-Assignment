@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the CMT-Assignment
 
-Things you may want to cover:
+How to run:
 
-* Ruby version
+* git clone [url]
 
-* System dependencies
+* run 'npm install'
 
-* Configuration
+* run 'bin/rails db:migrate RAILS_ENV=development'
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Go to localhost:3000
