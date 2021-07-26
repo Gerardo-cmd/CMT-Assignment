@@ -1,18 +1,114 @@
 // Place all the styles related to the Searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-h1 {
-    color: blue;
+
+//Universal
+html, body {
+    margin:0;
+    padding:0;
+    color: white;
 }
 
+.container {
+    margin:0;
+    padding:0;
+    background:rgb(36, 30, 66);
+    min-height: 100vh;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: rgb(64, 191, 233);
+}
+
+.header {
+    text-align: center;
+}
+
+//buttons and links
+
+.btn-primary {
+    font-weight: bold;
+    padding: .25rem;
+    background:rgb(64, 191, 233);
+    color: white;
+}
+
+.btn-secondary {
+    font-weight: bold;
+    padding: .25rem;
+    background:rgb(76, 75, 80);
+    color:white;
+}
+
+a {
+    text-decoration: none;
+}
+
+button a {
+    color:white;
+}
+
+table a {
+    color:rgb(98, 206, 241);
+    
+}
+
+a:hover {
+    color: red;
+}
+
+//Table
 td {
-    border: 2px solid rgb(85, 78, 78);
+    border: 2px solid rgb(184, 184, 184);
 }
 
 th {
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
 }
 
+.npi {
+    color:rgb(98, 206, 241);
+}
+
+.name {
+    color:rgb(255, 155, 155);
+}
+
+.address {
+    color: rgb(231, 228, 31);
+}
+
+.taxonomy {
+    color: rgb(123, 245, 41);
+}
+
+//Show a search
+label {
+    font-weight: bold;
+}
+
+.payload {
+    margin: auto;
+    width: 30%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+.homeButton {
+    text-align: center;
+}
+
+//Alerts
 #alerts {
-    background: rgb(255, 96, 96);
+    background: rgba(136, 211, 255, 0.76);
+    font-weight: bold;
+    font-size: large;
+    padding: 0.75rem;
+    min-height: 3vh;
 }

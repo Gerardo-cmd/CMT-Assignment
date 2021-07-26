@@ -1,23 +1,37 @@
-<h1>NPI: <%= @search.npi %></h1>
-<h2>Last searched on <%= @search.updated_at %></h2>
-<h2>Response:</h2>
+<div class="container">
+    <div class="row" id="alerts">
+        <% flash.each do |type, msg| %>
+        <div>
+            <%= msg %>
+        </div>
+        <% end %>
+    </div>
+    <div class="header">
+        <h1>NPI: <%= @search.npi %></h1>
+        <%#<h2>Last searched on <%= @search.updated_at %><%#</h2>%>
+    </div>
+    <div class="payload">
+        <label for="name">Name</label>
+        <li id="name"><%= @search.first_name + " " + @search.last_name %></li>
 
-<label for="name">Name</label>
-<p id="name"><%= @search.first_name%><%= @search.last_name %></p>
+        <label for="address">Address</label>
+        <li id="address"><%= @search.address %></li>
 
-<label for="address">Address</label>
-<p id="address"><%= @search.address %></p>
+        <label for="city">City</label>
+        <li id="city"><%= @search.city %></li>
 
-<label for="state">State</label>
-<p id="state"><%= @search.state %></p>
+        <label for="state">State</label>
+        <li id="state"><%= @search.state %></li>
 
-<label for="city">City</label>
-<p id="city"><%= @search.city %></p>
+        <label for="taxonomy">Taxonomy</label>
+        <li id="taxonomy"><%= @search.taxonomy %></li>
 
-<label for="taxonomy">Taxonomy</label>
-<p id="taxonomy"><%= @search.taxonomy %></p>
-
-<label for="phone_number">Telephone Number</label>
-<p id="phone_number"><%= @search.phone_number %></p>
-
-<%= link_to "HomePage", searches_path %>
+        <label for="phone_number">Telephone Number</label>
+        <li id="phone_number"><%= @search.phone_number %></li>
+    </div>
+    <div class="row" style="margin-top: 1rem;">
+        <button class="btn-primary">
+            <%= link_to "Home", searches_path %>
+        </button>
+    </div>
+</div>

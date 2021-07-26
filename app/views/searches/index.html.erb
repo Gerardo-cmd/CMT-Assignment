@@ -1,39 +1,43 @@
 <div class="container">
-<div class="row" id="alerts">
-  <% flash.each do |type, msg| %>
+  <div class="row" id="alerts">
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="header">
+    <h1>Search up NPIs!</h1>
+    <h2>Clink the button below to search for a NPI!</h2>
+    <button class="btn-primary">
+      <%= link_to "New Search", new_search_path, class: "btn btn-primary" %>
+    </button>
+    <br />
+    <br />
     <div>
-      <%= msg %>
-    </div>
+  </div>
+
+  <table class="row">                         
+    <tr>                          
+      <th class="npi">NPI</th>
+      <th class="name">Full Name</th>
+      <th class="address">Address</th>
+      <th class="taxonomy">Taxonomy</th>
+    </tr>
+  <% @searches.each do |search| %>
+    <tr>
+      <td class="npi"><%= link_to search.npi, search %></td> 
+      <td class="name"><%= search.first_name + " " + search.last_name %></td>
+      <td class="address"><%= search.address + ", " + search.city + ", " + search.state %></td>
+      <td class="taxonomy"><%= search.taxonomy %></td>  
+    </tr>
   <% end %>
-</div>
+  </table>     
 
-<h1>Search up NPIs!</h1>
-<h2>Clink the button below to search for a NPI!</h2>
-<%= link_to "New Search", new_search_path, class: "btn btn-primary" %>
-<br />
-<br />
-<div>
+  </div>
 
-<table>                         
-  <tr>                          
-    <th>NPI</th>
-    <th>Full Name</th>
-    <th>Address</th>
-    <th>Taxonomy</th>
-  </tr>
-<% @searches.each do |search| %>
-  <tr>
-    <td><%= link_to search.npi, search %></td> 
-    <td><%= search.first_name + " " + search.last_name %></td>
-    <td><%= search.address + ", " + search.city + ", " + search.state %></td>
-    <td><%= search.taxonomy %></td>  
-  </tr>
-<% end %>
-</table>     
-
-</div>
-
-<br />
-
-<%# <%= link_to "Delete Search History", "searches#destroy", class: "btn btn-primary" %>
+  <br />
+<%# 
+  <%= link_to "Delete Search History", "searches#destroy", class: "btn btn-primary" %>
 </div>

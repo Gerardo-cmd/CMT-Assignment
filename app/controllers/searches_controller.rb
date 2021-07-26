@@ -1,9 +1,8 @@
 require 'httparty'
 class SearchesController < ApplicationController
   include HTTParty
-  http_basic_authenticate_with name: "admin", password: "admin"
+  # http_basic_authenticate_with name: "admin", password: "admin"
   #, except: [:index, :show]
-  #Change calls to searches when finalizing!
   def index
     @searches = Search.order("updated_at").reverse_order
   end
@@ -36,6 +35,12 @@ class SearchesController < ApplicationController
       return
     end
 
+    if (response == nil)
+      flash.alert = "NPI not found, please try another npi!"
+      redirect_to searches_path
+      return
+    end
+
     #No practice location: 1750312773, Maybe look into getting telephone number from address instead of practice location???
     
     @search.update(address: response["addresses"][0]["address_1"])
@@ -48,15 +53,18 @@ class SearchesController < ApplicationController
 
     #NPI is unique and saving was successful
     if (@search.save)
+      flash.alert = "NPI successfully saved to search history"
       redirect_to @search
       return
     end
   end
 
   def destroy 
-    Search.destroy_all
-    redirect_to searches_path
-    return
+    @searches = Search.all@searches.each do |search|
+      search.destroy
+    end
+
+    redirect_to root_path
   end
 
   private

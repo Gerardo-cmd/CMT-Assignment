@@ -1,19 +1,31 @@
-<h1>New Search</h1>
-
-<%= form_with model: @search do |form| %>
-  <div>
-    <%= form.label :npi %><br>
-    <%= form.text_field :npi %>
-    <% @search.errors.full_messages_for(:npi).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+<div class="container">
+  <div class="row" id="alerts">
+      <% flash.each do |type, msg| %>
+        <div>
+            <%= msg %>
+        </div>
+      <% end %>
   </div>
+  <div class="header">
+    <h1>New Search</h1>
 
-  <div>
-    <%= form.submit %>
+  <%= form_with model: @search do |form| %>
+    <div>
+      <%= form.text_field :npi, placeholder: "10-digit NPI" %>
+      <% @search.errors.full_messages_for(:npi).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+    <br />
+    <div>
+      <%= form.submit 'Search' %>
+    </div>
+  <% end %>
+
+  <br />
+
+  <button class="btn-secondary">
+    <%= link_to "Cancel", searches_path %>
+  </button>
   </div>
-<% end %>
-
-<br />
-
-<%= link_to "Cancel", searches_path %>
+</div>
