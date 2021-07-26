@@ -10,4 +10,6 @@ How to run:
 
 * run 'bin/rails db:migrate RAILS_ENV=development'
 
+* run 'bin/rails server'
+
 * Go to localhost:3000
