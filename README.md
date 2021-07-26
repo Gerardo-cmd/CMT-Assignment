@@ -1,10 +1,10 @@
-# README
-
-This is the CMT-Assignment
+# CMT-Assignment
 
 How to run:
 
 * git clone [url]
+
+* cd into the new project
 
 * run 'npm install'
 
